@@ -1,0 +1,11 @@
+# Logs
+*.log
+
+# Build artifacts
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+
+# JB user's files
+.idea/
