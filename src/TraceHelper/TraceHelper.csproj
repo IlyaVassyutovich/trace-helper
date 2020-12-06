@@ -3,11 +3,31 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <RootNamespace>IV.TraceHelper</RootNamespace>
+        <LangVersion>8</LangVersion>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <IncludeSource>true</IncludeSource>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    </PropertyGroup>
+
+    <PropertyGroup>
         <Title>Tracing helper</Title>
         <Authors>Ilya Vassyutovich</Authors>
         <Copyright>Ilya Vassyutovich</Copyright>
         <Company>Mindbox</Company>
-        <PackageVersion>0.1.0</PackageVersion>
+        <PackageDescription>Tracing helper</PackageDescription>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <RepositoryUrl>https://github.com/IlyaVassyutovich/trace-helper</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <VersionPrefix>0.2.0</VersionPrefix>
+        <PackageId>IV.TraceHelper</PackageId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -15,4 +35,7 @@
         <PackageReference Include="JetBrains.Annotations" Version="2020.3.0"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="../../LICENSE" Pack="true" PackagePath=""/>
+    </ItemGroup>
 </Project>
