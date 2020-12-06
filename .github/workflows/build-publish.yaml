@@ -1,0 +1,40 @@
+name: Build & Publish
+on:
+  workflow_dispatch:
+    inputs:
+      is_release_build:
+        description: 'Run to produce "Release" package? [true|false]'
+        required: true
+        default: "false"
+
+jobs:
+  build-publish:
+    name: "Build & Publish"
+    runs-on: ubuntu-latest
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+      DOTNET_NOLOGO: true
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Determine version suffix
+        env:
+          WF_IS_RELEASE_BUILD: "${{ github.event.inputs.is_release_build }}"
+        run: ./tools/build/DetermineVersionSuffix.ps1
+        shell: pwsh
+
+      - name: Build project
+        run: ./tools/build/Build.ps1
+        shell: pwsh
+
+      - name: Pack project
+        run: ./tools/build/Pack.ps1
+        shell: pwsh
+
+      - name: Publish nuget package
+        env:
+          WF_MYGET_TOKEN: "${{ secrets.MYGET_TOKEN }}"
+        run: ./tools/build/Publish.ps1
+        shell: pwsh
