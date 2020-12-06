@@ -1,11 +1,19 @@
 # Logs
 *.log
 
+
 # Build artifacts
 [Dd]ebug/
 [Rr]elease/
 [Bb]in/
 [Oo]bj/
+/[Bb]uild/
+
+
+# Built/packed nuget packages
+*.nupkg
+*.snupkg
+
 
 # JB user's files
 .idea/
